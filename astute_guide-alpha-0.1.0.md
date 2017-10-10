@@ -250,6 +250,34 @@ _**IMPORTANT**_ This UI panel is under active development. List of features to b
 
 Convertion of billing data from Astute billing data into M1 specified format is implemented as script. Integration of billing adapter into admin UI is in progress.
 
+Billing adapter script creates text file with fixed format and length.
+
+File sequence and report files will be saved into `/opt/billing/` dir.
+
+Report period can be added by `--start` DATE `--end` DATE cmd line parameters.
+
+If `--end` param is not specified, current date is taken (if current date > 28, then date = 28).
+
+If `--start` param is not specified, 1 month back from `--end` is applied.
+
+Examples:
+
+- all active invoises in period [2017-06-25..2017-07-25]
+
+`python billing-adapter.py --start 2017-06-25 --end 2017-07-25`
+
+- same result - [2017-06-25..2017-07-25]
+
+`python billing-adapter.py --end 2017-07-25`
+
+e.g. curent date 2017-10-06, period is [2017-10-06..2017-09-06]
+
+`python billing-adapter.py`
+
+e.g. curent date 2017-10-30, period is [2017-10-28..2017-09-28]
+
+`python billing-adapter.py`
+
 
 ## Signup Web Application
 
@@ -270,3 +298,30 @@ As mentioned above OpenStack tenant (project) might be created and preconfigured
 - List of exisiting signups might be explored in Horizon dashboard at *Identity / Signups*
 
 *NOTE: Signup service is a good candidate to implement a single point of account registration: it is possible to extend this application so it will also configure Astute billing account, its billing type, assign plan mappings and discounts.*
+
+
+## Customer Billing Interface
+
+_**IMPORTANT**_*: This part of user interface is in active development.*
+
+After OpenStack tenant/project has been mapped into Astute billing, customer gets few billing related pannels in its portal:
+
+- List of account invoices:
+
+  Browse *Project / Billing / Invoices*
+
+  ![project-billing-invoices](img/astute/project-billing-invoices.png)
+
+- List of subscribed (assigned) plans:
+
+  Browse *Project / Billing / Subscribed Plans*
+
+  ![project-billing-mapped-plans](img/astute/project-billing-mapped-plans.png)
+
+- List of available plans:
+
+  Browse *Project / Billing / Available Plans*
+
+  ![project-billing-avail-plans](img/astute/project-billing-avail-plans.png)
+
+  From this interface customer could activate (subscribe) additional plans.
