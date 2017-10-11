@@ -46,7 +46,7 @@ Discount types determine a set of discounts that might be applied to billing acc
 
 *Admin / Billing / Configuration / Discounts*
 
-Discounts defines an actual discount type and amount that will be applied to end user account or mapped plans:
+Discounts define an actual discount type and amount that will be applied to end user account or mapped plans:
 
 
 #### RAB Rates
@@ -281,7 +281,7 @@ e.g. curent date 2017-10-30, period is [2017-10-28..2017-09-28]
 
 ## Signup Web Application
 
-As mentioned above OpenStack tenant (project) might be created and preconfigured by Signup service (codename: Urbane). But creation of OS tenant is not the only task it is resolves. After it creates OS tenant it also able to set project's default compute quotas, default block storage quotas, default network quotas and setup project internal network and router.
+As mentioned above OpenStack tenant (project) might be created and preconfigured by Signup service (codename: Urbane). But creation of OS tenant is not the only task it resolves. After it creates OS tenant it also able to set project's default compute quotas, default block storage quotas, default network quotas and setup project internal network and router.
 
 ### Process of OpenStack tenant/project creation
 
