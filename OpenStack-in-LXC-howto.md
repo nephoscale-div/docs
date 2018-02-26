@@ -93,8 +93,8 @@ both networks: 'management' and 'external'. This could be done either on host
 with commands like:
 
 ```
-iptables -t nat -A POSTROUTING -s 10.0.0.0/24 -j SNAT --to MASQUERADE
-iptables -t nat -A POSTROUTING -s 172.22.22.0/24 -j SNAT --to MASQUERADE
+iptables -t nat -A POSTROUTING -s 10.0.0.0/24 -j MASQUERADE
+iptables -t nat -A POSTROUTING -s 172.22.22.0/24 -j MASQUERADE
 ```
 
 or on LAN gateway connected to internet (refer to router manual for this).
